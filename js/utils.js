@@ -1,6 +1,6 @@
 'use strict';
 
-function countNeighbors(cellI, cellJ, board) {
+function countMinesNegs(cellI, cellJ, board) {
     var neighborsCount = 0;
 
     for (var i = cellI - 1; i <= cellI + 1; i++) {

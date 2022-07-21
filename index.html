@@ -12,11 +12,19 @@
 
 <body onload="initGame()">
 
-    <div class="timer">000</div>
+    <button onclick="setBoardSize(4, 2)"> Beginner </button>
+    <button onclick="setBoardSize(8, 12)"> Intermediate </button>
+    <button onclick="setBoardSize(12, 30)"> Expert </button>
+
+    <div class="restart">
+        <button onclick="initGame()"></button>
+    </div>
+
+    <div class="lives"></div>
+
+    <div class="timer">0</div>
 
     <div class="board-container"></div>
-
-
 
 
     <script src="js/utils.js"></script>

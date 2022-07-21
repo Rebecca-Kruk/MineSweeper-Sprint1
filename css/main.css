@@ -4,12 +4,35 @@ body {
 }
 
 .timer {
-    border: 2px solid black;
-    width: 50px;
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 2px solid;
+    background-color: brown;
+    color: antiquewhite;
+    font-size: medium;
+    font-weight: 500;
+    padding: 15px 30px;
+    margin: 15px;
+}
 
+button {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 2px solid;
+    background-color: brown;
+    color: antiquewhite;
+    font-size: medium;
+    font-weight: 500;
+    padding: 15px 30px;
+    margin: 15px;
+}
+
+button:hover {
+    background-color: antiquewhite;
+    color: brown;
+    transition-duration: 0.4s;
+}
+
+.lives {
+    height: 22px;
 }
 
 table {
@@ -17,7 +40,7 @@ table {
     border-collapse: collapse;
 }
 
-.cell {
+td {
     border: 2px solid black;
     width: 50px;
     height: 50px;
