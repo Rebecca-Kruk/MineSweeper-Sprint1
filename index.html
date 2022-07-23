@@ -5,27 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sprint 1</title>
+    <title>Mine Sweeper 💣</title>
     <link rel="stylesheet" href="css/main.css">
 
 </head>
 
 <body onload="initGame()">
 
-    <button onclick="setBoardSize(4, 2)"> Beginner </button>
-    <button onclick="setBoardSize(8, 12)"> Intermediate </button>
-    <button onclick="setBoardSize(12, 30)"> Expert </button>
+    <h1> Mine Sweeper </h1>
 
-    <div class="restart">
-        <button onclick="initGame()"></button>
-    </div>
+    <button onclick="setBoardSize(4, 2, 1)"> Beginner </button>
+    <button onclick="setBoardSize(8, 12, 2)"> Intermediate </button>
+    <button onclick="setBoardSize(12, 30, 3)"> Expert </button>
+    <br />
 
     <div class="lives"></div>
+
+    <div class="restart" onclick="initGame()"></div>
 
     <div class="timer">0</div>
 
     <div class="board-container"></div>
 
+    <footer>© Rebecca Krukover</footer>
 
     <script src="js/utils.js"></script>
     <script src="js/main.js"></script>

@@ -1,17 +1,18 @@
 body {
     text-align: center;
     background-color: antiquewhite;
+    background-image: url("../img/background.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: contain;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: brown;
 }
 
-.timer {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    border: 2px solid;
-    background-color: brown;
-    color: antiquewhite;
-    font-size: medium;
-    font-weight: 500;
-    padding: 15px 30px;
-    margin: 15px;
+h1 {
+    margin-top: 30px;
+    font-size: 45px;
 }
 
 button {
@@ -22,28 +23,64 @@ button {
     font-size: medium;
     font-weight: 500;
     padding: 15px 30px;
-    margin: 15px;
+    margin: 0 30px;
 }
 
 button:hover {
-    background-color: antiquewhite;
+    background-color: rgba(252, 252, 252, 0.3);
     color: brown;
     transition-duration: 0.4s;
 }
 
 .lives {
-    height: 22px;
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+    height: 30px;
+    font-size: 30px;    
+}
+
+.restart {
+    display: inline;
+    font-size: 50px;
+    padding: 30px;
+}
+
+.timer {
+    display: inline-block;
+    width: 200px;
+    text-align: left;
+    color: white;
+    font-size: 35px;
+    font-weight: 500;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 table {
-    margin: auto;
     border-collapse: collapse;
+    margin: auto;
+    width: 430px;
+    height: 430px;
 }
 
 td {
-    border: 2px solid black;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5em;
-    background-color: rgb(248, 224, 192);
+    border: 2px solid brown;
+    width: 25px;
+    height: 25px;
+    font-size: 1.1em;
+    font-weight: 500;
+    background-color: rgb(255, 226, 188);
+}
+
+td:hover {
+    background-color: rgba(250, 241, 229, 0.3);
+}
+
+footer {
+    position: fixed;
+    top: 95%;
+    font-size: large;
+    font-weight: 500;
+    background-color: antiquewhite;
 }

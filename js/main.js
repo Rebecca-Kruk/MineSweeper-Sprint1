@@ -13,34 +13,38 @@ var gGame = {
 };
 var gLevel = {
     SIZE: 4,
-    MINES: 2
+    MINES: 2,
+    LIVES: 1
 };
+var gLifeCounter;
 var gTimeInterval;
 var gFirstClick;
-var gLifeCounter;
 
 
 function initGame() {
     gGame.isOn = true;
-    gFirstClick = true;
     gGame.shownCount = 0;
     gGame.markedCount = 0;
     gGame.secsPassed = 0;
-    gLifeCounter = 3;
+    gFirstClick = true;
+    gLifeCounter = gLevel.LIVES;
     gBoard = buildBoard(gLevel.SIZE);
+    clearInterval(gTimeInterval);
+    console.log('gBoard:', gBoard);
     // DOM:
     renderBoard(gBoard, '.board-container');
+    renderSmiley('😀');
     renderLives();
     document.querySelector('.timer').innerHTML = '0';
-    document.querySelector('.restart button').innerHTML = '😀';
 }
 
 
 // Board Size
-function setBoardSize(SIZE, MINES) {
+function setBoardSize(SIZE, MINES, LIVES) {
     gLevel = {
         SIZE,
-        MINES
+        MINES,
+        LIVES
     };
     initGame();
 }
@@ -148,10 +152,11 @@ function cellClicked(i, j) {
         renderBoard(gBoard, '.board-container');
     }
 
-    var elCurrCell = document.querySelector(`.cell-${i}-${j}`);
-
     if (gBoard[i][j].isMarked) return;
 
+    var elCurrCell = document.querySelector(`.cell-${i}-${j}`);
+
+    // Start Timer
     if (!gGame.secsPassed) {
         gTimeInterval = setInterval(startTimer, 1000);
         gGame.secsPassed++;
@@ -187,7 +192,7 @@ function cellClicked(i, j) {
             // Restart the Game
             gGame.isOn = false;
             clearInterval(gTimeInterval);
-            document.querySelector('.restart button').innerHTML = '😣';
+            renderSmiley('😭');
             return;
         }
     }
@@ -208,19 +213,7 @@ function cellClicked(i, j) {
 }
 
 
-// Render Lives Count
-function renderLives() {
-    var strHTML = '';
-
-    for (var i = 0; i < gLifeCounter; i++) {
-        strHTML += '❤️';
-    }
-
-    document.querySelector('.lives').innerHTML = strHTML;
-}
-
-
-// Put a FLAG - Called on right click to mark a cell (suspected to be a mine)
+// Place a FLAG - Called on right click to mark a cell (suspected to be a mine)
 function cellMarked(elCell, i, j) {
     if (!gGame.isOn) return;
     oncontextmenu = (e) => { e.preventDefault() };
@@ -252,12 +245,12 @@ function checkGameOver() {
             }
         }
     }
-    
+
     // Restart the Game
     if ((gGame.markedCount === gLevel.MINES) && (gGame.shownCount >= (gLevel.SIZE ** 2) - gLevel.MINES) && (gLifeCounter > 0)) {
         gGame.isOn = false;
         clearInterval(gTimeInterval);
-        document.querySelector('.restart button').innerHTML = '😎';
+        renderSmiley('🥳');
     }
 }
 
@@ -289,6 +282,24 @@ function expandShown(board, elCell, i, j) {
             currCell.style.backgroundColor = 'antiquewhite';
         }
     }
+}
+
+
+// Render Restart Button
+function renderSmiley(smiley) {
+    document.querySelector('.restart').innerHTML = `${smiley}`;
+}
+
+
+// Render Lives Count
+function renderLives() {
+    var strHTML = '';
+
+    for (var i = 0; i < gLifeCounter; i++) {
+        strHTML += '🤍';
+    }
+
+    document.querySelector('.lives').innerHTML = strHTML;
 }
 
 
